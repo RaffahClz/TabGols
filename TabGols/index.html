@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https: fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:;">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TabGols</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1 id="appTitle">TabGols</h1>
+        <p class="tag">Tabela personalizada — pontos baseados em gols</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="logo-small">TG</div>
+        <button id="themeToggle" class="theme-toggle" title="Alternar tema claro/escuro" aria-label="Alternar tema">🌙</button>
+      </div>
+    </div>
+    <!-- Botão admin removido da UI para ficar escondido; use atalho Ctrl+Alt+A ou 5 cliques rápidos no título -->
+    <!-- Hotspot discreto para entrar como admin (toque longo no mobile ou clique no desktop) -->
+    <div id="adminHotspot" class="admin-hotspot" title="Entrar como Admin (discreto)"></div>
+  </header>
+
+  <main>
+    <section class="left">
+      <div class="controls admin-only">
+        <input id="teamName" placeholder="Nome do time" />
+        <input id="teamShield" placeholder="URL do escudo (opcional)" />
+        <button id="addTeamBtn">Adicionar time</button>
+      </div>
+
+      <h2>Classificação</h2>
+      <table id="table" class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th style="text-align:left">Time</th>
+            <th>Pontos</th>
+            <th>J</th>
+            <th>GC</th>
+            <th>SG</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+
+    <section class="right">
+      <div class="controls admin-only">
+        <select id="homeSelect"></select>
+        <select id="awaySelect"></select>
+        <button id="addMatchBtn">Adicionar partida</button>
+      </div>
+
+      <h2>Partidas</h2>
+      <div id="matches"></div>
+
+      <div class="footer-actions admin-only">
+        <!-- Reset button is created dynamically for admins by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
